@@ -5,6 +5,11 @@
 		<a href="{{ post.get_absolute_url }}"><div class="fs-4 fw-bold">{{ post.title }}</div></a>
 		<p class="fst-italic fs-6">Published {{ post.publish }} by {{ post.author }}</p>
         <div class="fs-5">
+	{% if post.photo %}
+	<div class="text-center"><img src="{{ post.photo.url }}" width="400"></div>
+    {% else %}
+    <div class="text-center"><img src="https://picsum.photos/seed/picsum/400/300"></div>
+	{% endif %}
 		{{ post.body|truncatewords:30|linebreaks }}
 	</div>
 {% endfor %}

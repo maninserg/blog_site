@@ -9,6 +9,8 @@
 <div class="fs-5">
 	{% if post.photo %}
 	<div class="text-center"><img src="{{ post.photo.url }}"></div>
+    {% else %}
+    <div class="text-center"><img src="https://picsum.photos/seed/picsum/400/300"></div>
 	{% endif %}
 	{{ post.body|linebreaks }}
 </div>	
