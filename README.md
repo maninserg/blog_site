@@ -1,7 +1,16 @@
 # blog_site_django
 
 
+**About:** The blog website is made by Django 3 
 
+<hr>
+**Description:**
+
+Have done:
+- dividing list of posts to shorter lists on separate pages
+- tune up django admin
+- adding and show comments for posts
+- tags for posts and filter posts by tags
 
 <hr>
 
