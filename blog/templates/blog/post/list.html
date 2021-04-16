@@ -1,8 +1,17 @@
 {% extends "blog/base.html" %}
 {% block title %}My blog{% endblock %}
 {% block content %}
+    {% if tag %}
+    <p class="fs-4">Post tagged with {{ tag.name }}</p>
+    {% endif %}
 	{% for post in posts %}
 		<a href="{{ post.get_absolute_url }}"><div class="fs-4 fw-bold">{{ post.title }}</div></a>
+        <p class="fst-italic fs-6">Tags:
+        {% for tag in post.tags.all %}
+        <a class="link" href="{% url "blog:post_list_by_tag" tag.slug %}">{{ tag.name }}</a>,
+        {% endfor %}
+        </p>
+
 		<p class="fst-italic fs-6">Published {{ post.publish }} by {{ post.author }}</p>
         <div class="fs-5">
 	{% if post.photo %}
