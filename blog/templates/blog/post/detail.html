@@ -4,9 +4,12 @@
 	{{ post.title }}
 {% endblock %}
 {% block content %}
-	<div class="fs-4 fw-bold">{{ post.title }}</div>
-	<p class="fst-italic fs-6">Published {{ post.publish }} by {{ post.author }}</p>
-	<div class="fs-5">
-		{{ post.body|linebreaks }}
-        </div>	
+<div class="fs-4 fw-bold">{{ post.title }}</div>
+<p class="fst-italic fs-6">Published {{ post.publish }} by {{ post.author }}</p>
+<div class="fs-5">
+	{% if post.photo %}
+	<div class="text-center"><img src="{{ post.photo.url }}"></div>
+	{% endif %}
+	{{ post.body|linebreaks }}
+</div>	
 {% endblock %}
