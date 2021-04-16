@@ -11,6 +11,7 @@ Have done:
 - tune up django admin
 - adding and show comments for posts
 - tags for posts and filter posts by tags
+- create dеsign by bootstrap 5
 
 <hr>
 
