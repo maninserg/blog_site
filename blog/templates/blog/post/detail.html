@@ -13,5 +13,45 @@
     <div class="text-center"><img src="https://picsum.photos/seed/picsum/400/300"></div>
 	{% endif %}
 	{{ post.body|linebreaks }}
-</div>	
+</div>
+<hr>
+
+<p class="fs-4">
+{% with comments.count as total_comments %}
+{{total_comments}} comment{{total_comments|pluralize}}
+{% endwith %}
+</p>
+
+{% for comment in comments %}
+<div class="fst-italic fs-6">Comment {{ forloop.counter }} by {{ comment.name }}</div>
+<div class="fst-italic fs-6">{{ comment.created }}</div>
+<p class="fst-italic fs-6">{{ comment.body|linebreaks }}</p>
+{% empty %}
+<p class="fst-italic fs-6">There are not comments yet</p>
+{% endfor %}
+
+{% if new_comment %}
+<p class="fs-4">Your comment has been added </p>
+{% else %}
+<p class="fs-4"> Add a new comment </p>
+<form class="row g-6" action="." method="post">
+	<div class="mb-3">
+		<label for="id_name" class="form-label">Name:</label>
+		<input type="text" class="form-control" name="name" id="id_name" placeholder="name">
+	</div>
+	<div class="mb-3">
+		<label for="id_email" class="form-label">Email address:</label>
+		<input type="email" class="form-control" name="email" id="id_email" placeholder="name@example.com">
+	</div>
+	<div class="mb-3">
+		<label for="id_body" class="form-label">Body:</label>
+		<textarea class="form-control" name="body" id="id_body" rows="3"></textarea>
+	</div>
+	{% csrf_token %}
+	<div class="col-12">
+		<button type="submit" class="btn btn-primary">Add Comment</button>
+	</div>
+</form>
+{% endif %}
+<p class="fs-4"> </p>
 {% endblock %}
