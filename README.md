@@ -1,7 +1,5 @@
 # blog_site_django
 
-## About 
-
 The blog website is made by Django 3 
 
 
