@@ -1,10 +1,9 @@
 # blog_site_django
 
-**About:** The blog website is made by Django 3 
+The blog website is made by Django 3 
 
-<hr>
 
-**Description:**
+## Description
 
 Have done:
 - dividing list of posts to shorter lists on separate pages
@@ -13,9 +12,8 @@ Have done:
 - tags for posts and filter posts by tags
 - create dеsign by bootstrap 5
 
-<hr>
 
-**Screenshots**
+## Screenshots
 
 <p align="center">
   <img width = "800" src="screenshots/home_page.jpg"/>
