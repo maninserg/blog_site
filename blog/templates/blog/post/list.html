@@ -1,4 +1,6 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
+
 {% block title %}My blog{% endblock %}
 {% block content %}
     {% if tag %}
@@ -19,7 +21,7 @@
     {% else %}
     <div class="text-center"><img src="https://picsum.photos/400/300/?blur"></div>
 	{% endif %}
-		{{ post.body|truncatewords:30|linebreaks }}
+		{{ post.body|markdown|truncatewords:30 }}
 	</div>
 {% endfor %}
 

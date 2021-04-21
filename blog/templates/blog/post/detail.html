@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 
 {% block title %}
 	{{ post.title }}
@@ -12,7 +13,7 @@
     {% else %}
     <div class="text-center"><img src="https://picsum.photos/500/300/?blur"></div>
 	{% endif %}
-	{{ post.body|linebreaks }}
+	{{ post.body|markdown }}
 </div>
 <hr>
 
