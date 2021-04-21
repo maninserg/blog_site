@@ -11,6 +11,8 @@ Have done:
 - adding and show comments for posts
 - tags for posts and filter posts by tags
 - create dеsign by bootstrap 5
+- RSS feed
+- Markdown's makeup for posts by way of own filter 
 
 
 ## Screenshots
