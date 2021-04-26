@@ -28,7 +28,7 @@ Have done:
 
 2. Create of a virtual environment:
 
-    $ `python3 -m venv .venv
+    $ `python3 -m venv .venv`
     
 3. Activate the virtual environment:
 
