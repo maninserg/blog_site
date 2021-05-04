@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, SearchForm
 from taggit.models import Tag
+from django.contrib.postgres.search import SearchVector
 
 
 def post_list(request, tag_slug=None):
@@ -42,9 +43,21 @@ def post_detail(request, year, month, day, post):
             new_comment.save()
     else:
         comment_form = CommentForm()
-        print(comment_form)
-
     return render(request, 'blog/post/detail.html', {'post': post,
                                                      'comments': comments,
                                                      'new_comment': new_comment,
                                                      'comment_form': comment_form})
+
+def post_search(request):
+    form = SearchForm()
+    query = None
+    result = []
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+    if form.is_valid():
+        query = form.cleaned_data['query']
+        result = Post.objects.annotate(search=SearchVector('title', 'body'),
+                                           ).filter(search=query)
+    return render(request, 'blog/post/search.html', {'form': form,
+                                                            'query': query,
+                                                            'result': result})
