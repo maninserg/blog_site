@@ -15,6 +15,7 @@ Have done:
 - Markdown's makeup for posts by way of own filter
 - Connection to PostgreSQL
 - Full-text search by PostgerSQL
+- Caching by Redis
 
 
 ## Installation for Linux*:
