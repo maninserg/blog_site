@@ -14,6 +14,7 @@ Have done:
 - RSS feed
 - Markdown's makeup for posts by way of own filter
 - Connection to PostgreSQL
+- Full-text search by PostgerSQL
 
 
 ## Installation for Linux*:
